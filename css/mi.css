@@ -1,0 +1,419 @@
+/* <!-- //顶部广告 start--> */
+.header {
+  width: 100%;
+  height: 120px;
+  margin: 0 auto;
+  /* 超出内容隐藏 */
+  overflow: hidden; 
+  /* 定位的口诀 父级要相对定位 子绝父相 */
+  position: relative;
+}
+/*
+   面试常见的css问题 
+   1.内容居中问题 ： 一个大盒子中有个小盒子 如何让小盒子在大盒子中 水平 垂直居中 
+      思路：1.弹性盒子模型
+           2.采用定位的方式 实现水平 垂直居中  
+ */
+.header img{
+  /* 图片的高度要和容器div标签保持一致 */
+  height: 120px;
+  /* 定位的口诀 子级要绝对定位 子绝父相 */
+  position: absolute; 
+  /* 距离左边有50% 也就是屏幕的一半 */
+  left: 50%; 
+  /* X轴再向左移动50% 也就是图片的整体向左边去*/
+  transform: translateX(-50%);
+}
+/* <!-- //顶部广告 start--> */
+
+
+/*     <!-- 黑色导航部分 start--> */
+.black-nav{
+  width: 100%;
+  height: 40px;
+  /* 行高等于盒子的高度的话 就是水瓶居中了 */
+  line-height: 40px;
+  background-color: #333;
+  font-size: 12px;
+}
+
+/* 上面的父级也就是内容 现在进行左右居中操作 */
+/* 黑色导航和白色导航都可以共用 所以选择器命名也很重 并且可以简化代码量 提高系统运行效率 */
+.wrap{
+  /* wrap版心居中 会为宽度为1226px 居中  */
+  width: 1226px ;
+  margin: 0 auto;
+}
+
+/* 这是一个容器盒子 需要浮动 接下来盒子里面的字 也就li标签也需要向左浮动 */
+.black-nav .wrap .black-nav-left{
+  float: left;
+}
+
+/* 这是一个容器盒子 需要浮动 接下来盒子里面的字 也就li标签也需要向左浮动 */
+/*  选择器可以相对灵活 减少代码的重复率 两边同时浮动向左  */
+.black-nav .wrap li{
+  float: left;
+  /* li标签 需要定位 因为鼠标移动 会弹出download下拉框 需要相对定位 */
+  position: relative;
+}
+
+/* 无论左边还还是右边 a标签的字体颜色 都是同一个颜色 */
+.black-nav a{
+  color: #b0b0b0;
+}
+
+/* 无论左边还还是右边 a标签的字体颜色 都是同一个颜色 格式也是一样的 所以 选择器可以相对灵活 减少代码的重复率*/
+.black-nav .wrap  li span{
+  color:#424242;
+  margin: 0 3.6px;
+}
+
+.black-nav .wrap .black-nav-right{
+  float: right;
+}
+
+/* 因为是一个固定位置的处理 所以要用绝对定位 */
+.download {
+  /* 首先先规范它的大小 */
+  width: 124px;
+  /* 因为默认高度时不存在的 只有在鼠标移动中 才会显示高度 所以这里需要把高度改为0px */
+  /* height: 148px; */
+  height: 0px;
+  background: #fff;
+  /* 阴影 x坐标0 ，y坐标为1px ，模糊度为5px  */
+  box-shadow: 0 1px 5px #aaa;
+  position: absolute; 
+  top: 40px;
+  left: 50%;
+  margin-left: -62px;
+  /* 超出的部分进行隐藏 */
+  overflow: hidden;
+}
+
+.download img{
+  width: 90px;
+  margin: 18px auto 0;
+}
+
+.download p{
+  color: #333;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.black-nav-left li:hover .download{
+  height: 148px;
+  /* 延迟显示 */
+  transition: height 0.4s;
+}
+
+.stri {
+  width: 0 ;
+  height: 0 ;
+  border-bottom: 8px solid #fff;
+  border-left: 8px solid transparent;
+  border-right: 8px solid  transparent;
+  position: absolute;
+  /* 以li标签的低为stri的底  */
+  bottom: 0;
+  /* 在整个li标签的中间 所以给上50% */
+  left: 50%;
+  margin-left: -8px;
+  display: none;
+
+}
+
+.black-nav-left li:hover .stri{
+  display: block;
+}
+
+
+.cart {
+  width: 120px;
+  height: 40px;
+  background-color: #424242;
+  /* 与左边距离撑开一些距离 */
+  margin-left: 25px;
+}
+
+/* 鼠标移动到目标区域 变成白色 */
+.cart:hover{
+  background-color: #fff;
+}
+
+/* 鼠标移动目标区域  字体变成橘黄色 */
+.cart:hover a {
+color: #ff6700;
+}
+
+.cart i {
+  font-style: normal;
+  margin-right: 8px;
+}
+
+.cart:hover i{
+  font-style: italic;
+}
+
+.cart-list {
+  width: 316px;
+  height: 0px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+  position: absolute;
+  right: 0;
+  top: 40px;
+  color: #424242;
+  overflow: hidden;
+  line-height: 100px;
+}
+
+/* 鼠标画上去 显示购物车盒子内容 */
+.cart:hover .cart-list{
+  height: 100px;
+  /* 延迟显示 */
+  transition: height 0.4s;
+}
+/*     <!-- 黑色导航部分 end--> */
+
+/* 白色导航部分 start */
+.white-nav{
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  position: relative;
+}
+
+.logo{
+  width: 55px;
+  height: 55px;
+  background-color: #ff6700;
+  float: left;
+  margin-top: 22.5px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+}
+.logo>img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.4s;
+}
+
+.mi-home {
+  left: -55px;
+}
+.mi-logo{
+  left: 0px;
+}
+
+.logo:hover .mi-home{
+  left: 0px;
+}
+
+.logo:hover .mi-logo{
+  /* display: none; */
+  left: 55px;
+}
+
+.nav-bar{
+  width: 875px;
+  height: 100px;
+  line-height: 100px;
+  float: left;
+}
+
+.nav-bar li {
+  float: left;
+  /* 如果在li标签上定位的话，会导致图片撑不开 所以不能定位在li标签 而是放在白色导航里面 选择更大的区域进行定位把内容撑开到画面的100% */
+  /* position: relative; */
+}
+
+.nav-bar li a{
+  color: #333;
+  padding: 0 10px;
+  font-size: 15px;
+  color: #8d8d8d;
+}
+
+.nav-bar li a:hover {
+  color: #ff6700;
+}
+
+.nav-bar ul li img{
+  margin-top: 20.5px;
+}
+
+.search{
+  float: right;
+  width: 296px;
+  height: 100px;
+}
+
+.search input{
+  /* 整个容器的宽度为294px */
+  /* 296-244 剩下的就是按钮 */
+  width: 244px;
+  height: 50px;
+  float: left;
+  border: 1px solid #e0e0e0;
+  /* 消除边框大小 不至于换行排列 */
+  box-sizing: border-box;
+  margin-top: 25px;
+  padding: 0 10px;
+  border-right: 0px;
+   /* 消除有色边框 */
+  outline: none;
+}
+.search button{
+  width: 52px;
+  height: 50px;
+  float: right;
+  border: 1px solid #e0e0e0;
+  margin-top: 25px;
+  color: #474747;
+}
+
+.search button:hover {
+  background: #ff6700;
+  color: #fff;
+}
+
+.nav-bar-list{
+  width: 100%;
+  height: 229px;
+  background-color: #fff;
+  /* 上面框设置线 */
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  /* 绝对定位 从版心的左边开始 */
+  position: absolute;
+  left: 0;
+  top: 100px;
+  /* 默认隐藏 */
+  display: none;
+}
+
+.nav-bar li:hover .nav-bar-list{
+  display: block;
+}
+
+.nav-bar-list li {
+  line-height: normal;
+  border-right: 1px solid #eee;
+}
+
+.nav-bar-list .name{
+  font-size: 12px;
+  color: #333;
+}
+.nav-bar-list .price{
+  font-size: 12px;
+  color: #ff6700;
+}
+/* 白色导航部分 end */
+
+/* banner start */
+.banner{
+  width: 100%;
+  height: 460px;
+
+}
+.banner img{
+  width: 100%;
+}
+
+.banner .wrap{
+  position: relative;
+}
+
+.slide{
+  width: 234px;
+  /* /* 实际高度为460px 后期把上下距离空出来 460-420  padding: 40px/ */
+  height: 420px;
+  padding: 20px 0 ;
+  background-color: rgba(105, 101, 101, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.slide ul li {
+  height: 42px;
+  line-height: 42px;
+  text-align: left;
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+.slide ul li a{
+  color: #fff;
+}
+
+.slide ul li i{
+  float: right;
+  padding-right: 25px;
+}
+
+/* 侧边框选中之后变换颜色 */
+.slide ul li:hover {
+  background-color: #ff6700;
+}
+
+.slide-list{
+  /* wrap的宽度：1226px - 侧边栏的宽度：234px */
+  width: 992px;
+  height: 460px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  position: absolute;
+  top: 0;
+  left: 234px;
+  border-left: none;
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .18);
+  display: none;
+  /* display: block; */
+}
+
+.slide-list ul {
+  width: 100%;
+}
+
+.slide-list ul li {
+  width: 240px;
+  height: 76px;
+  float: left;
+  padding: 18px 0 18px 20px;
+  box-sizing: border-box;
+  line-height: 76px;
+}
+
+.slide-list img{
+  width: 40px;
+  margin-right: 10px;
+}
+
+.slide-list span{
+  color: #333;
+  font-size: 14px;
+  /* 这里为什么不是绝对定位 而是相对定位呢 */
+  position:relative;
+  top:-10px;
+}
+
+.slide li:hover .slide-list{
+   display: block;
+}
+
+.slide-list ul li a:hover{
+ color: #ff6700;
+}
+
+
+
+
+/* banner end */
